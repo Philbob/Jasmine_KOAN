@@ -15,7 +15,9 @@ module.exports = function (config) {
       // list of files / patterns to load in the browser
       //manually list the Spec files to dictate ordering
       files: ['app/**/*.js', 
-              'test/describingSuitesSpec.js'],
+              'test/describingSuitesSpec.js',
+              'test/declaringSpecsSpec.js'
+             ],
 
       // list of files to exclude
 
