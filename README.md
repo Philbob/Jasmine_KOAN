@@ -1,6 +1,9 @@
 # Jasmine_Koan
 
-A set of worked examples for Jasmine
+The best way of learning is by doing right? This is an attempt at producing a lightweight set of KOANS to aid with the learning of [Jasmine](https://github.com/jasmine/jasmine), the scope of this KOAN 
+is not to teach Javascript, there are already some great examples of KOANS for this [Here](https://github.com/liammclennan/JavaScript-Koans) and [Here](https://github.com/mrdavidlaing/javascript-koans), as such it is assumed that the reader is familiar with basic Javascript already.
+
+For the timebeing this KOAN is aimed at [Jasmine 1.3](http://jasmine.github.io/1.3/introduction.html) purely because my primary target audience is using this version, I fully intended to extend this overtime to include later versions of Jasmine.
 
 ## Getting Started
 
@@ -16,53 +19,15 @@ Note: If you don't have `npm` installed, make sure you have
 `npm install -g bower`.
 
 The above steps will download all the required software to
-build and run this app, such as [grunt](http://gruntjs.com),
-[requirejs](http://requirejs.org), and [lodash](https://github.com/lodash/lodash).
+build and run this koan, such as [Karma](http://karma-runner.github.io/),
+ [Istanbul](https://github.com/gotwarlost/istanbul).
 
-## Running the server
 
-You can run your app using `grunt preview`. This will start a
-server on `localhost:8000`, meaning you can simply go to the
-url [localhost:8000](http://localhost:8000)
-while it's running.
+## Project Structure
 
-If you'd like to run the compiled version, run
-`grunt preview-live`.
+The project consists of two main directories 'app' and 'test', although it may seem conunter intuitive, you will need to write your KOAN code in the app directory.  The test directory contains all of the tests that will guide you through the KOAN.
 
-## Building the application
 
-This application uses requirejs to load the various modules in
-the app folder. However, upon build, all of these files are
-concatenated and minified together to create a small, compressed
-javascript file.
+## Running the Tests
 
-Running `grunt` by itself will run through all of the steps of
-linting the javascript, building out dependencies and ultimately
-creating `/dist/require.js`.
-
-## Working with the scaffolded app
-
-There's just enough to in place to get you going. Go ahead
-and make your changes to `index.html`. You'll start your
-javascript work in `app/main.js` by requiring your first
-modules. Past that, well, the world is your oyster.
-
-### Tests
-
-The test directory uses `jasmine`, which is run using phantomJS
-in the console, but can also be ran by launching the server
-`grunt preview` and going to `localhost:8000/test/index.html`.
-
-Create tests in the `test/tests.js` file, where you can
-require your modules and test their functionality.
-
-## Deploying your application on a server
-
-Assuming you're already ran `npm install` and `bower install`,
-the only pieces required to run the application in its built
-state is running `grunt`.
-
-If you're using a webserver like apache or nginx, you'll want
-to create a redirect from `/bower_components/requirejs/require.js` to
-`/dist/require.js`. (*Note: this is exactly what `grunt
-preview-live` does*)
+You can run your tests from the root directory by calling Karma start, and you can change the test runmode by modifying the browers property in the karma.conf file using any of the valid values assuming that browser is available on your system, for a guide on the Karma.config file please checkout [KARMA Configuration File guide](http://karma-runner.github.io/0.12/config/configuration-file.html)

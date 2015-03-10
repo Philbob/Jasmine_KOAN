@@ -24,28 +24,14 @@ module.exports = function (grunt) {
         dest: 'dist/require.js'
       }
     },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/require.min.js'
-      }
-    },
+
     jasmine: {
       test: {
-        src: ['app/**/*.js', '!app/config.js'],
+        src: ['app/**/*.js'],
         options: {
           specs: 'test/*Spec.js',
           helpers: 'test/*Helper.js',
-          template: require('grunt-template-jasmine-requirejs'),
-          templateOptions: {
-            requireConfigFile: 'app/config.js',
-            requireConfig: {
-              baseUrl: 'app/'
-            }
-          }
+          template: require('grunt-template-jasmine-requirejs')
         }
       }
     },
@@ -87,17 +73,7 @@ module.exports = function (grunt) {
         files: ['test/**/*.js'],
         tasks: ['jshint:test', 'jasmine']
       },
-    },
-    requirejs: {
-      compile: {
-        options: {
-          name: 'config',
-          mainConfigFile: 'app/config.js',
-          out: '<%= concat.dist.dest %>',
-          optimize: 'none'
-        }
-      }
-    },
+    }
     connect: {
       development: {
         options: {
@@ -129,16 +105,16 @@ module.exports = function (grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  //grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-connect');
+  //grunt.loadNpmTasks('grunt-contrib-requirejs');
+  //grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'jasmine', 'clean', 'requirejs', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'jasmine']);
   grunt.registerTask('preview', ['connect:development']);
   grunt.registerTask('preview-live', ['default', 'connect:production']);
   grunt.registerTask('test', ['jasmine']);

@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
 
       // base path, that will be used to resolve files and exclude
-      basePath: '.',
+      basePath: '',
 
 
       // frameworks to use
@@ -13,21 +13,13 @@ module.exports = function (config) {
 
 
       // list of files / patterns to load in the browser
-      files: [
-        'app/config.js',
-        {pattern: 'bower_components/**/*.js', included: false},
-        {pattern: 'app/**/*.js', included: false},
-        {pattern: 'test/**/*Spec.js', included: false},
-        'test/test-main.js'
-      ],
-
+      //manually list the Spec files to dictate ordering
+      files: ['app/**/*.js', 
+              'test/describingSuitesSpec.js'],
 
       // list of files to exclude
 
-      exclude: [
-        //'app/config.js',
-        'bower_components/jasmine/**/*.js'
-      ],
+      exclude: [],
 
       preprocessors: {
         'app/**/*.js': 'coverage'
@@ -64,7 +56,7 @@ module.exports = function (config) {
       // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
       // - PhantomJS
       // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-      browsers: ['Chrome'],
+      browsers: ['PhantomJS'],
 
 
       // If browser does not capture in given timeout [ms], kill it
