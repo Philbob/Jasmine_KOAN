@@ -1,4 +1,4 @@
-describe('declaring test specs - ', function(){
+xdescribe('declaring test specs - ', function(){
 
     var jasmineIt, jasmineIIt, jasmineXIt; 
         
@@ -17,7 +17,7 @@ describe('declaring test specs - ', function(){
         
                 
         it('Create a test Spec, using the title "this is a test spec"', function(){
-            expect(jasmineIt).toHaveBeenCalledWith('this is a test spec', jasmine.any(Function));
+            expect(jasmineIt).toHaveBeenCalledWith('This is a test spec', jasmine.any(Function));
         });
 
         it('Create a test Spec, and make it the only one to execute', function(){ 

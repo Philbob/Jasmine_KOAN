@@ -1,6 +1,6 @@
 function describingTestSpecs(describe, it, iit, xit){
     
-    describe("Declaring your specs", function(){
+    describe("Declaring your specifications", function(){
         
         //1. Create a blank spec using the spec name "This is a test spec"
         
